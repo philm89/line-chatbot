@@ -3,7 +3,7 @@ const express = require('express')
 const app = express()
 
 const PORT = process.env.PORT || 3000
-const TOKEN = '2ljQRBGPsrGafKOMn02PtlMX/uD4ye4LogzA/JzRF9hQWXzkCR/w1CzsIRJG0H+m2NjhbCHD9tY6lIrFNzgUkJYEuFjNw1Bdd9tJgElXEts12WCQ0at/pGB674NxajYowbWwP44NQ9qNA7C2m3zl4gdB04t89/1O/w1cDnyilFU='
+const TOKEN = process.env.LINE_ACCESS_TOKEN
 
 app.use(express.json())
 app.use(express.urlencoded({
