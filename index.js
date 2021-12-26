@@ -1,7 +1,6 @@
-const https = require('https')
-const express = require('express')
+const https = require("https")
+const express = require("express")
 const app = express()
-
 const PORT = process.env.PORT || 3000
 const TOKEN = process.env.LINE_ACCESS_TOKEN
 
@@ -29,12 +28,11 @@ app.post("/webhook", function (req, res) {
                 {
                     "type": "text",
                     "text": "May I help you?"
-                },
+                }
             ]
-
         })
 
-        //Request Header
+        // Request header
         const headers = {
             "Content-Type": "application/json",
             "Authorization": "Bearer " + TOKEN
@@ -49,19 +47,19 @@ app.post("/webhook", function (req, res) {
             "body": dataString
         }
 
-        // Define Request
+        // Define request
         const request = https.request(webhookOptions, (res) => {
             res.on("data", (d) => {
                 process.stdout.write(d)
             })
         })
 
-        // Handle Error
+        // Handle error
         request.on("error", (err) => {
             console.error(err)
         })
 
-        // Send Data
+        // Send data
         request.write(dataString)
         request.end()
     }
