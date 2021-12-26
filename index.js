@@ -51,6 +51,7 @@ app.post("/webhook", function (req, res) {
         const request = https.request(webhookOptions, (res) => {
             res.on("data", (d) => {
                 process.stdout.write(d)
+                console.log(req.body)
             })
         })
 
